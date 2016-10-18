@@ -105,6 +105,8 @@ module Poseidon
           @socket = TCPSocket.new(@host, @port)
         rescue SystemCallError
           raise_connection_failed_error
+        rescue SocketError
+          raise_connection_failed_error
         end
       end
     end
